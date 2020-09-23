@@ -6,18 +6,84 @@
 <!-- Bootstrap CSS -->
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
+
+
+<link rel="icon" type="image/png" href="favicon.ico">
+
+<!-- Google Font link -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+	rel="stylesheet">
+
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!--For Plugins external css-->
+
+<!--Theme custom css -->
+<link rel="stylesheet" href="../static/pokemon-pricing-table.css">
 </head>
 </head>
 <body>
-	<div class="container">
-		<div class="container">
-			<td th:text="${nombre}" /> <br>
-			<tr th:each="cadena: ${cadena}">
-				<td th:text="${cadena}" />
-				<br>
-			</tr>
-		</div>
 
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1>Pokemon</h1>
+			<p>Evolucion</p>
+		</div>
+	</section>
+
+
+	<div class="container p-3 my-3 border">
+		<div class="col-md-3 col-sm-6 ">
+			<div class="bs-pricing-item last-border sm-m-top-140">
+				<div class="bs-icon">
+					<img src="../images/icon4.png" alt="" />
+				</div>
+				<div class="head">
+					<div class="price-title">
+						<h2 class="text-uppercase" th:text="${nombre}"></h2>
+						<div class="separator"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 col-sm-6 " th:each="cadena: ${cadena}">
+			<div class="bs-pricing-item last-border sm-m-top-140">
+				<div class="bs-icon">
+					<img src="../images/icon4.png" alt="" />
+				</div>
+				<div class="head">
+					<div class="price-title">
+						<h2 class="text-uppercase" th:text="${cadena}"></h2>
+						<div class="separator"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+	<div class="container">
+		<a th:href="@{'/'}" class="btn btn-primary">Inicio</a>
+	</div>
+
+	<br>
+	<section class="jumbotron text-center">
+		<!-- Footer -->
+		<footer class="page-footer font-small blue">
+
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				© 2020 Copyright: <a href="https://mdbootstrap.com/">
+					MDBootstrap.com</a>
+			</div>
+			<!-- Copyright -->
+
+		</footer>
+		<!-- Footer -->
+	</section>
 </body>
 </html>

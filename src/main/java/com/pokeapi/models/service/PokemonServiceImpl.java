@@ -22,15 +22,14 @@ public class PokemonServiceImpl implements IPokemonService {
 	private RestTemplate pokeRest;
 
 	@Override
-	public ResponseEntity<?> findAll(String url) {
+	public ResponseEntity<PokeEspecies> findAll(String url) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		headers.add("user-agent",
 				"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
 		HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-		ResponseEntity<?> res = pokeRest.exchange(url, HttpMethod.GET, entity, PokeEspecies.class);
+		ResponseEntity<PokeEspecies> res = pokeRest.exchange(url, HttpMethod.GET, entity, PokeEspecies.class);
 		System.out.println("**********************************************************************************");
-//        System.out.println(res.getBody().getResults());
 		return res;
 	}
 

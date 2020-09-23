@@ -6,58 +6,103 @@
 <!-- Bootstrap CSS -->
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
+
+
+<link rel="icon" type="image/png" href="favicon.ico">
+
+<!-- Google Font link -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+	rel="stylesheet">
+
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!--For Plugins external css-->
+
+<!--Theme custom css -->
+<link rel="stylesheet" href="../static/pokemon-pricing-table.css">
 </head>
 </head>
 <body>
 	<section class="jumbotron text-center">
-		<div class="container">
-			<h1 class="text-uppercase" th:text="${detalle.name}"></h2>
+		<div class="bs-icon">
+			<img src="../images/icon4.png" alt="" />
 		</div>
+
+		<h1 class="text-uppercase" th:text="${detalle.name}"></h1>
 	</section>
 	<div class="container">
 		<div class="form-row">
 			<div class="col-md-6 mb-3">
 				<label for="validationDefault01">base_happiness</label> <input
 					type="text" class="form-control" id="validationDefault01"
-					value="Mark" required th:field="${detalle.base_happiness}">
+					value="Mark" required th:field="${detalle.base_happiness}"
+					readonly="readonly">
 			</div>
 			<div class="col-md-6 mb-3">
 				<label for="validationDefault02">capture_rate</label> <input
 					type="text" class="form-control" id="validationDefault02"
-					value="Otto" required th:field="${detalle.capture_rate}">
+					value="Otto" required th:field="${detalle.capture_rate}"
+					readonly="readonly">
 			</div>
 			<div class="col-md-6 mb-3">
 				<label for="validationDefault02">color</label> <input type="text"
 					class="form-control" id="validationDefault02" value="Otto" required
-					th:field="${detalle.color.name}">
+					th:field="${detalle.color.name}" readonly="readonly">
 			</div>
 
 			<div class="col-md-6 mb-3">
 				<label for="validationDefault02">generation</label> <input
 					type="text" class="form-control" id="validationDefault02"
-					value="Otto" required th:field="${detalle.generation.name}">
+					value="Otto" required th:field="${detalle.generation.name}"
+					readonly="readonly">
 			</div>
 
 			<div class="col-md-6 mb-3">
 				<label for="validationDefault02">growth_rate</label> <input
 					type="text" class="form-control" id="validationDefault02"
-					value="Otto" required th:field="${detalle.growth_rate.name}">
+					value="Otto" required th:field="${detalle.growth_rate.name}"
+					readonly="readonly">
 			</div>
 
 			<div class="col-md-6 mb-3">
 				<label for="validationDefault02">habitat</label> <input type="text"
 					class="form-control" id="validationDefault02" value="Otto" required
-					th:field="${detalle.habitat.name}">
+					th:field="${detalle.habitat.name}" readonly="readonly">
 			</div>
 			<div class="col-md-6 mb-3">
 				<label for="validationDefault02">shape</label> <input type="text"
 					class="form-control" id="validationDefault02" value="Otto" required
-					th:field="${detalle.shape.name}">
-			</div>			
+					th:field="${detalle.shape.name}" readonly="readonly">
+			</div>
 		</div>
 
+
 		<a
-			th:href="@{'/evolucion/'+ ${#strings.substring(detalle.evolution_chain.url,42)}}">Cadena</a>
+			th:href="@{'/evolucion/'+ ${#strings.substring(detalle.evolution_chain.url,42)}}"
+			class="btn btn-primary">Evolucion</a> <a th:href="@{'/'}"
+			class="btn btn-primary">Inicio</a>
 	</div>
+	<br>
+
+	<section class="jumbotron text-center">
+		<!-- Footer -->
+		<footer class="page-footer font-small blue">
+
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				© 2020 Copyright: <a href="https://mdbootstrap.com/">
+					MDBootstrap.com</a>
+			</div>
+			<!-- Copyright -->
+
+		</footer>
+		<!-- Footer -->
+	</section>
 </body>
 </html>

@@ -7,7 +7,9 @@ import com.pokeapi.models.entity.PokemonDetalle;
 import com.pokeapi.models.entity.PokemonEvolution;
 
 public interface IPokemonService {
-	public ResponseEntity<?> findAll(String url);
+	public ResponseEntity<PokeEspecies> findAll(String url);
+
 	public ResponseEntity<PokemonDetalle> detalle(String url);
+
 	public ResponseEntity<PokemonEvolution> evol(String url);
 }

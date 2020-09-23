@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Pokémon</title>
+<title>Pok�mon</title>
 <!-- Bootstrap CSS -->
 <link href="../static/css/bootstrap.css" rel="stylesheet"
 	th:href="@{/css/bootstrap.css}">
@@ -30,44 +30,28 @@
 </head>
 <body>
 	<section class="jumbotron text-center">
-		<div class="container">
-			<h1>Pokémon</h1>
-			<p>¡Atrápalos ya!</p>
+		<div class="bs-icon">
+			<img src="../images/icon4.png" alt="" />
 		</div>
+
+		<h1 class="text-uppercase" th:text="${nombre}"></h1>
 	</section>
-
+	
 	<div class="container">
-		<div class="col-md-3 col-sm-6 " th:each="pokemon: ${pokemon}">
-			<div class="bs-pricing-item last-border sm-m-top-140">
-				<div class="bs-icon">
-					<img src="images/icon4.png" alt="" />
-				</div>
-				<div class="head">
-					<div class="price-title">
-						<a th:href="@{'/detalle/'+ ${#strings.substring(pokemon.url,42)}}">
-							<h2 class="text-uppercase" th:text="${pokemon.name}"></h2>
-						</a>
-						<div class="separator"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="container">
-		<a th:href="@{/mostrar/0}" class="btn btn-primary">Atrás</a> <a
-			th:href="@{/mostrar/1}" class="btn btn-primary">Siguiente</a>
+		<h1 class="text-uppercase">No tiene Evolucion</h1>
 	</div>
 
 
+	<a th:href="@{'/'}" class="btn btn-primary">Inicio</a>
 	<br>
+
 	<section class="jumbotron text-center">
 		<!-- Footer -->
 		<footer class="page-footer font-small blue">
 
 			<!-- Copyright -->
 			<div class="footer-copyright text-center py-3">
-				© 2020 Copyright: <a href="https://mdbootstrap.com/">
+				� 2020 Copyright: <a href="https://mdbootstrap.com/">
 					MDBootstrap.com</a>
 			</div>
 			<!-- Copyright -->

@@ -38,16 +38,13 @@ public class PokemonController {
 
 	@GetMapping("/mostrar/{parm}")
 	public String mostrar(@PathVariable("parm") String parm, Model model) {
-		System.out.println(di2);
+		System.out.println("previous :" + di2);
 		if (parm.equals("0")) {
 			dir = di2;
 		}
 		ResponseEntity<PokeEspecies> pke = (ResponseEntity<PokeEspecies>) service.findAll(dir);
 		PokeEspecies p = pke.getBody();
 		List<Pokemon> pokemon = pke.getBody().getResults();
-//		for (int i = 0; i < pokemon.size(); i++) {
-//			System.out.println(pokemon.get(i).getName());
-//		}
 		dir = p.getNext();
 		di2 = p.getPrevious();
 		if (di2 == null) {
@@ -82,31 +79,36 @@ public class PokemonController {
 		System.out.println(nombre);
 
 		List<EvolvesTo> evolvesTo = chain.getEvolves_to();
-		for (int i = 0; i < evolvesTo.size(); i++) {
-			if (evolvesTo.size() > 0) {
-				System.out.println(evolvesTo.get(i).getSpecies().getName());
-				cadena.add(evolvesTo.get(i).getSpecies().getName());
-				for (int j = 0; j < evolvesTo.get(i).getEvolves_to().size(); j++) {
-					if (evolvesTo.get(i).getEvolves_to().size() > 0) {
-						System.out.println(evolvesTo.get(i).getEvolves_to().get(j).getSpecies().getName());
-						cadena.add(evolvesTo.get(i).getEvolves_to().get(j).getSpecies().getName());
-						for (int j2 = 0; j2 < evolvesTo.get(i).getEvolves_to().get(j).getEvolves_to().size(); j2++) {
-							System.out.println(evolvesTo.get(i).getEvolves_to().get(j).getEvolves_to().get(j)
-									.getSpecies().getName());
-							cadena.add(evolvesTo.get(i).getEvolves_to().get(j).getEvolves_to().get(j).getSpecies()
-									.getName());
+		if (evolvesTo.size() > 0) {
+			for (int i = 0; i < evolvesTo.size(); i++) {
+				if (evolvesTo.size() > 0) {
+					System.out.println(evolvesTo.get(i).getSpecies().getName());
+					cadena.add(evolvesTo.get(i).getSpecies().getName());
+					for (int j = 0; j < evolvesTo.get(i).getEvolves_to().size(); j++) {
+						if (evolvesTo.get(i).getEvolves_to().size() > 0) {
+							System.out.println(evolvesTo.get(i).getEvolves_to().get(j).getSpecies().getName());
+							cadena.add(evolvesTo.get(i).getEvolves_to().get(j).getSpecies().getName());
+							for (int j2 = 0; j2 < evolvesTo.get(i).getEvolves_to().get(j).getEvolves_to()
+									.size(); j2++) {
+								System.out.println(evolvesTo.get(i).getEvolves_to().get(j).getEvolves_to().get(j)
+										.getSpecies().getName());
+								cadena.add(evolvesTo.get(i).getEvolves_to().get(j).getEvolves_to().get(j).getSpecies()
+										.getName());
 
+							}
 						}
-					}
 
+					}
 				}
+
 			}
 
+			model.addAttribute("nombre", nombre);
+			model.addAttribute("cadena", cadena);
+			return "evolucion";
 		}
-
 		model.addAttribute("nombre", nombre);
-		model.addAttribute("cadena", cadena);
-		return "evolucion";
+		return "error";
 
 	}
 
