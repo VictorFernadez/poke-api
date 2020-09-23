@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pokémon</title>
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+
+
+<link rel="icon" type="image/png" href="favicon.ico">
+
+<!-- Google Font link -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+	rel="stylesheet">
+
+
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!--For Plugins external css-->
+
+<!--Theme custom css -->
+<link rel="stylesheet" href="../static/pokemon-pricing-table.css">
+</head>
+</head>
+<body>
+	<!-- 	<div class="container"> -->
+	<!-- 		<tr th:each="pokemon: ${pokemon}"> -->
+	<!-- 			<a th:href="@{'/detalle/'+ ${#strings.substring(pokemon.url,42)}}"><td -->
+	<!-- 				th:text="${pokemon.name}" /></a> -->
+	<!-- 			<br> -->
+	<!-- 		</tr> -->
+
+	<!-- 	</div> -->
+	<!-- <a th:href="/mostrar/@{pokemon.url}">view</a> -->
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1>Pokémon</h1>
+			<p>¡Atrápalos ya!</p>
+			<!--<div class="btn btn-info btn-large">Download </div>-->
+		</div>
+	</section>
+
+	<div class="container">
+		<div class="col-md-3 col-sm-6 " th:each="pokemon: ${pokemon}">
+			<div class="bs-pricing-item last-border sm-m-top-140">
+				<div class="bs-icon">
+					<img src="images/icon4.png" alt="" />
+				</div>
+				<div class="head">
+					<div class="price-title">
+						<a th:href="@{'/detalle/'+ ${#strings.substring(pokemon.url,42)}}">
+							<h2 class="text-uppercase" th:text="${pokemon.name}"></h2>
+						</a>
+						<div class="separator"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<a th:href="@{/mostrar/0}" class="btn btn-primary">Siguiente</a> <a
+			th:href="@{/mostrar/1}" class="btn btn-primary">Atrás</a>
+	</div>
+
+</body>
+</html>

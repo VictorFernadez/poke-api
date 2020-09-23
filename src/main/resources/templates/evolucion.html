@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Pokémon</title>
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+</head>
+<body>
+	<div class="container">
+		<div class="container">
+			<td th:text="${nombre}" /> <br>
+			<tr th:each="cadena: ${cadena}">
+				<td th:text="${cadena}" />
+				<br>
+			</tr>
+		</div>
+
+	</div>
+</body>
+</html>
