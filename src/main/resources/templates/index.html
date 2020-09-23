@@ -29,20 +29,10 @@
 </head>
 </head>
 <body>
-	<!-- 	<div class="container"> -->
-	<!-- 		<tr th:each="pokemon: ${pokemon}"> -->
-	<!-- 			<a th:href="@{'/detalle/'+ ${#strings.substring(pokemon.url,42)}}"><td -->
-	<!-- 				th:text="${pokemon.name}" /></a> -->
-	<!-- 			<br> -->
-	<!-- 		</tr> -->
-
-	<!-- 	</div> -->
-	<!-- <a th:href="/mostrar/@{pokemon.url}">view</a> -->
 	<section class="jumbotron text-center">
 		<div class="container">
 			<h1>Pokémon</h1>
 			<p>¡Atrápalos ya!</p>
-			<!--<div class="btn btn-info btn-large">Download </div>-->
 		</div>
 	</section>
 
@@ -63,10 +53,25 @@
 			</div>
 		</div>
 	</div>
+	<br>
 	<div class="container">
-		<a th:href="@{/mostrar/0}" class="btn btn-primary">Siguiente</a> <a
-			th:href="@{/mostrar/1}" class="btn btn-primary">Atrás</a>
+		<a th:href="@{/mostrar/0}" class="btn btn-primary">Atrás</a> <a
+			th:href="@{/mostrar/1}" class="btn btn-primary">Siguiente</a>
 	</div>
+	<br>
+	<section class="jumbotron text-center">
+		<!-- Footer -->
+		<footer class="page-footer font-small blue">
 
+			<!-- Copyright -->
+			<div class="footer-copyright text-center py-3">
+				© 2020 Copyright: <a href="https://mdbootstrap.com/">
+					MDBootstrap.com</a>
+			</div>
+			<!-- Copyright -->
+
+		</footer>
+		<!-- Footer -->
+	</section>
 </body>
 </html>

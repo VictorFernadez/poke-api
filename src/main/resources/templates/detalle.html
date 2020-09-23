@@ -9,6 +9,11 @@
 </head>
 </head>
 <body>
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="text-uppercase" th:text="${detalle.name}"></h2>
+		</div>
+	</section>
 	<div class="container">
 		<div class="form-row">
 			<div class="col-md-6 mb-3">
@@ -22,13 +27,37 @@
 					value="Otto" required th:field="${detalle.capture_rate}">
 			</div>
 			<div class="col-md-6 mb-3">
-				<label for="validationDefault02">colore</label> <input type="text"
+				<label for="validationDefault02">color</label> <input type="text"
 					class="form-control" id="validationDefault02" value="Otto" required
 					th:field="${detalle.color.name}">
 			</div>
+
+			<div class="col-md-6 mb-3">
+				<label for="validationDefault02">generation</label> <input
+					type="text" class="form-control" id="validationDefault02"
+					value="Otto" required th:field="${detalle.generation.name}">
+			</div>
+
+			<div class="col-md-6 mb-3">
+				<label for="validationDefault02">growth_rate</label> <input
+					type="text" class="form-control" id="validationDefault02"
+					value="Otto" required th:field="${detalle.growth_rate.name}">
+			</div>
+
+			<div class="col-md-6 mb-3">
+				<label for="validationDefault02">habitat</label> <input type="text"
+					class="form-control" id="validationDefault02" value="Otto" required
+					th:field="${detalle.habitat.name}">
+			</div>
+			<div class="col-md-6 mb-3">
+				<label for="validationDefault02">shape</label> <input type="text"
+					class="form-control" id="validationDefault02" value="Otto" required
+					th:field="${detalle.shape.name}">
+			</div>			
 		</div>
 
-	<a th:href="@{'/evolucion/'+ ${#strings.substring(detalle.evolution_chain.url,42)}}">Cadena</a>		
+		<a
+			th:href="@{'/evolucion/'+ ${#strings.substring(detalle.evolution_chain.url,42)}}">Cadena</a>
 	</div>
 </body>
 </html>
